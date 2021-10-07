@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-// import Post from './components/post';
+
 
 class App extends Component {
   constructor() {
@@ -25,16 +25,20 @@ class App extends Component {
   }
 
   toggleTheme = () => {
-    if(this.state.theme === "light"){
+    if (this.state.theme === "light") {
+      localStorage.setItem("theme", "dark");
+      localStorage.setItem("icon", "far fa-moon");
       this.setState({
-        theme: "dark",
-        iconClass: "far fa-moon"
+        theme: localStorage.getItem("theme"),
+        iconClass: localStorage.getItem("icon")
       })
     }
-    else{
+    else {
+      localStorage.setItem("theme", "light");
+      localStorage.setItem("icon", "fas fa-sun");
       this.setState({
-        theme: "light",
-        iconClass: "fas fa-sun"
+        theme: localStorage.getItem("theme"),
+        iconClass: localStorage.getItem("icon")
       })
     }
   }
